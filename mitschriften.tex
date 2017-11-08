@@ -1,0 +1,133 @@
+\documentclass[11pt, xcolor=dvipsnames]{article}
+
+% general
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+\setotherlanguage{english}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{subfiles}
+\usepackage{hyperref}
+
+% geometry
+\usepackage{geometry}
+
+% colors
+\usepackage{xcolor}
+% TODO: fix cymk
+\definecolor{hublue}{RGB}{0,47,108}
+
+% literature
+\usepackage[style=alphabetic,maxbibnames=99, minalphanames=3, citestyle=alphabetic]{biblatex}
+\addbibresource{./literature.bib} 
+
+% fonts
+\usepackage{libertine}
+% \renewcommand{\familydefault}{\sfdefault}
+% \setsansfont[
+% ItalicFont={Fira Sans Light Italic},
+% BoldFont={Fira Sans},
+% BoldItalicFont={Fira Sans Italic}
+% ]{Fira Sans Light}
+% \setmonofont[BoldFont={Fira Mono Medium}]{Fira Mono}
+
+% math
+\usepackage{mathtools}
+\usepackage{amsmath, amssymb, stmaryrd, cancel}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\newcommand{\limn}{\lim\limits_{n \to \infty}}
+\newcommand{\inZ}{\in \mathbb{Z}}
+\newcommand{\inN}{\in \mathbb{N}}
+\newcommand{\inQ}{\in \mathbb{Q}}
+\newcommand{\inR}{\in \mathbb{R}}
+\newcommand{\inC}{\in \mathbb{C}}
+\newcommand{\reihe}[2]{\sum_{k=#1}^{\infty}{#2}}
+\newcommand{\sumn}[2]{\sum_{k=#1}^{n}{#2}}
+\newcommand{\konj}[1]{\overline{#1}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\chonk}[2]{ {{#1}\choose{#2}} }
+
+% tables
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+% diagrams & graphics
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+
+% toc
+\usepackage{tocstyle}
+\usetocstyle{standard}
+\setcounter{tocdepth}{1}
+
+% sections
+\renewcommand\thesection{Übung \arabic{section}}
+\renewcommand\thesubsection{Aufgabe \arabic{subsection}}
+\renewcommand\thesubsubsection{(\alph{subsubsection})}
+
+% code
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+basicstyle=\scriptsize\ttfamily,
+columns=fullflexible,
+showstringspaces=false,
+keywordstyle=\color{blue},
+stringstyle=\color{mymauve},
+breaklines=true,
+commentstyle=\color{mygreen}
+}
+\setmonofont{FiraCode-Regular}
+
+
+% acronyms
+\usepackage[nogroupskip, nopostdot, style=super,nonumberlist,toc]{glossaries}
+\setacronymstyle{long-sc-short}
+\renewcommand*{\glsnamefont}[1]{\textsc{#1}}
+\makenoidxglossaries%
+
+
+\begin{document}
+\newgeometry{left=2cm,right=2cm, top=0cm, bottom=0cm}
+\begin{titlepage}
+  \noindent\fcolorbox{hublue}{hublue}{
+    \begin{minipage}[c][0.99\textheight][c]{0.4\linewidth}
+      \centering
+      \includegraphics{husiegel.eps}\\
+    \end{minipage}
+  }
+  \begin{minipage}[c][\textheight][c]{0.6\linewidth}
+    \centering
+    {\Huge \textbf{Mitschriften}}\\
+    \vspace*{0.3cm}
+    {\Huge Einführung in die Kryptologie}\\
+    \vspace*{0.5cm}
+%    {\large Author\\
+%      Thanks: Jon Doe\\
+%    }
+    \vspace*{1cm}
+    {\large \today\\}
+  \end{minipage}
+\end{titlepage}
+\restoregeometry%
+\newpage
+\tableofcontents
+\newpage
+\section{} 
+\label{sec:1}
+\subfile{uebung1.tex}
+\section{} 
+\label{sec:2}
+\subfile{uebung2.tex}
+\end{document}
+% Local Variables:
+% TeX-engine: luatex
+% End:

@@ -1,0 +1,100 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\subsection{}
+Verschlüsseln sie den Text \textsc{dreieins} mittels einer
+\subsubsection{} % Aufgabe 9
+Additive Chiffre, k = 13\\
+$ y = $ \textsc{qervrvaf}
+\subsubsection{}
+Affine Chiffre, $k = (17,6)$ \\
+\begin{align*}
+  y_1 &= (17\cdot \textsc{D})+6 \mod 26  = (17\cdot 3)+6 = 5 = \textsc{F} \\
+  y_2 &= (17\cdot \textsc{R})+6 \mod 26  = (17\cdot 17)+6 = 9 = \textsc{J} \\
+  y_3 &= (17\cdot \textsc{E})+6 \mod 26  = (17\cdot 9)+6  = 22 = \textsc {V} \\
+  &\ldots \\
+  y &= \textsc{fjvmvmca}
+\end{align*}
+
+\subsubsection{}
+Vigenere-Chiffre, $k = \textsc{tim}$ \\
+\begin{align*}
+  E(\textsc{dreieins}) &= \underset{W}{\underbrace{D+T}} \underset{Z}{\underbrace{R+I}} \underset{Q}{\underbrace{E+M}} \underset{B}{\underbrace{I+T}} \underset{M}{\underbrace{E+I}} \underset{U}{\underbrace{I+M}} \underset{F}{\underbrace{N+S}} \underset{A}{\underbrace{S+I}}\\
+  y &= \textsc{wzqbmufa}
+\end{align*}
+
+\subsection{}
+\subsubsection{}
+\begin{align*}
+&(b,c) \text{ ist involutorisch } \Leftrightarrow  b^2 \equiv_m 1 \text{ und } c(b+1) \equiv_m 0\\
+&E_{(b,c)}(E_{(b,c)}(x)) =  b(bx + c) + c = b^2x + c(b+1)\\
+&\Leftarrow  E\cdots(E\cdots(x)) \equiv_m  x\\
+&\Rightarrow \text{Für } x = 0 \Rightarrow  E\cdots(E\cdots (0)) = 0 + c(b+1) &\text{ist nur kongruent zu 0, falls } c(b+1)\equiv_m 0 (\ast)\\
+&\text{Für } x=1 \Rightarrow  \cdots = b^2 + c(b+1)\\
+&\overset{\ast}{\equiv_m} b^2 \Rightarrow b^2 \equiv_m 1\\
+\end{align*}
+
+\subsubsection{}
+Spezialfall $m=35$\\
+Ziel: Alle $(b,c)$ mit $b^2 \equiv_{35} 1, c(b+1) \equiv_{35} 0$.\\
+\begin{itemize}
+	\item [1. Fall ] $b=1 \Rightarrow 26 \equiv_{35} 0 \Rightarrow35|2c \Rightarrow 35|c \Rightarrow c=0$ Einzige Lösung.
+	\item[2. Fall ] $b=34 \Rightarrow c \cdot 0 \equiv_{35} 0 \Rightarrow c$ bel. aus $\{0,1,2,\cdots,34\}$
+	\item[3. Fall ] $b = 6 \Rightarrow 7c \equiv_{35} 0 \Rightarrow 35|7c \Rightarrow 5|c \Rightarrow c\in \{0,5,10,15,20,25,30\}$
+	\item[4. Fall ] $b =29 \Rightarrow 30c \equiv_{35} 0 \Leftrightarrow (-5)c \equiv_{35} 0 \Leftrightarrow 35| (-5)c \Leftrightarrow 7|c \Leftrightarrow c \in \{0,7,14,21,28\}$
+\end{itemize}
+\subsubsection{}
+1. genau 1 Lösung unmöglich, denn "x ist Lösung" $\Rightarrow$ "-x ist Lösung". (da p prim, p=2 $\Rightarrow -x \equiv_p x$)\\
+2.  $\geq 2$: Sei $x_0$ eine Lösung: $x^2-d = (x-x_0)(ax+b)$ für geeignete $a,b$\\
+\begin{align*}
+= & ax^2+\underbrace{xb-ax_0x}_0 - x_0b \Rightarrow a = 1\\
+\Rightarrow & b-ax_0 \equiv_p 0 \Rightarrow b \equiv_p x_0\\
+\Rightarrow & x^2-d = (x-x_0)(x+x_0) \Rightarrow \text{Lsg. sind } x_0, -x_0
+\end{align*}
+Hinweis 2: $\mathbb{Z}_m: x^2 \equiv_m d$ hat 0 oder 4 Lösungen.\\
+\begin{align*}
+x^2 = & pd \text{ hat 0 oder 2 Lösungen}\\
+x^2 = & qd \text{ hat 0 oder 2 Lösungen}\\
+x_0,x_1 \mod p, x_0,x_1 \mod q& \text{ Chinesischer Restsatz}\\
+\Rightarrow & 4 Lsg \mod m
+\end{align*}
+Hauptteil von c):\\
+Betrachte Lösung von $b^2 \equiv_m 1$. 1 ist Lösung $\Rightarrow$ es ex. 4 Lösungen nach Hinweis.\\
+\begin{itemize}
+	\item[1. Fall] $b = 1\Rightarrow 2c \equiv_m 0 \Rightarrow$ 1 Lösung, da ggt(2,p)=1, ggt(2,q)=1, (Lemma von Euklid)
+	\item[2. Fall] $b\equiv_m -1\Rightarrow m Lsg$
+	\item[3. Fall] $b\equiv_p 1, b \equiv_q q-1$ 
+	\begin{align*}
+	\Rightarrow &c(b+1) \equiv_m 0 \Rightarrow 0 = qc(b+1)\Rightarrow c\cdot 0 \equiv_q 0\\
+	\Rightarrow & \text{q Lösungen } \mod q\\
+	\Rightarrow & \text{1 Lösung } \mod p \text{analog zu Fall 1}\\
+	\overset{CRS}{\Rightarrow} & q \mod m
+	\end{align*}
+	\item[4. Fall] $b\equiv_p p-1, b \equiv_q 1$ \qquad Analog zu 3.
+\end{itemize}
+Summe: $pq+p+q+1 = (p+1)(q+1)$ Lösungen.
+\subsection{}
+\subsubsection{}
+\begin{align*}
+	\det(A) = & \sum_{1}^{l} (-1)^{i+j} a_{ij}\cdot \det (A_{ij})\\
+	\det(A) = & \det(A^T), \ da \ (\det(A)\cdot\det(A^T) = \sum_{1}^{l}\sumn{1}{l}(-1)^{i+j}\cdots = \det(A^T)\det(A))  
+\end{align*}
+Keine Begründung: Multilinearität
+
+\subsubsection{}
+1. Für Matrizen über $\mathbb{Z}$ ist die Determinante ebenfalls $\inZ$ (EW-Satz)\\
+gilt auch über $\mathbb{Z}$\\
+2. Alle Operationen im EW-Satz sind "verträglich".\\
+$\det(A \mod m) = \det(A) \mod m \quad (A \inZ^{l\times l})$\\
+$\Rightarrow \det(A\mod m) \det(B \mod m) = (\det(A) \mod m) (det(B) \mod m) = \det(AB) \mod m = \det(AB \mod m)$
+
+\subsubsection{}
+TODO
+\subsubsection{}
+	$ \det(AB) = \det(A) \cdot \det(B) $ auch in $ \inZ_m^{l\times l} $
+	\begin{enumerate}
+		\item Für Matrizen über $ \inZ $ ist $ \det(A) \inZ \qquad $ (EW-Satz) 
+		\item Alle Operationen im EW-Satz sind "verträglich" \\
+		$ \det(A\text{ mod m }) = \det(A) \text{ mod m} \qquad A \inZ^{l\times l}$
+	\end{enumerate}
+	$ \Rightarrow \det(A \text{ mod m}) \det(B\text{ mod m}) = \det(AB) \text{ mod m } = \det(AB \text{ mod m}) $
+\end{document}
