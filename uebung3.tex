@@ -1,0 +1,61 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\subsection{}
+Behauptung:
+\begin{equation*}
+  \mathbb{Z}_m^{l\times l} \cong  \mathbb{Z}_p^{l\times l} \times  \mathbb{Z}_q^{l\times l}
+\end{equation*}
+falls $m=p \cdot q$ mit ggt$(p,q) = 1$. Der zugehörige Isomorphismus $\pi$ sei
+\begin{equation*}
+  \pi:A \Rightarrow (A\mod p, A\mod q)\\
+\end{equation*}
+Weiter sei
+\begin{align*}
+  C &= A\cdot B\\
+  c_{ij} &= \left(\sum_{k=1}{l}a_{ik}\cdot b_{kj}\right)\mod m 
+\end{align*}
+Also ist $c_{ij} \in \mathbb{Z}_p$ und $c_{ij} \in \mathbb{Z}_q$, also 1 Lösung für CRS.
+\begin{equation*}
+  \pi(A) = (A\mod p, A\mod q) \Rightarrow f(A^{-1}) = (A^{-1}\mod p, A^{-1}\mod q)
+\end{equation*}
+Für $m=6$ also (mit der Formel aus Aufgabe 17):
+\begin{equation*}
+  \|\mathbb{Z}_6^{l\times l} \| = \underbrace{\|\mathbb{Z}_2^{l\times l}\|}_{(2^2-1)(2^2-2)} \cdot  \underbrace{\|\mathbb{Z}_3^{l\times l}}_{(3^2-1)(3^2-3)}\| = 288
+\end{equation*}
+Analog für $m=26$:
+\begin{equation*}
+  \|\mathbb{Z}_{26}^{l\times l} \| = 157248
+\end{equation*}
+Für $m=8$:
+\begin{align*}
+  8^{-1} \mod 2 &\equiv 6\\
+\end{align*}
+\begin{equation*}
+\exists A^{-1}\mod 8 \Leftrightarrow \text{ggT}(8, \det(A)) = 1 \Leftrightarrow \text{ggT}(2, \det(A)) = 1 \Leftrightarrow \exists A^{-1}\mod 2
+\end{equation*}
+\begin{equation*}
+  \|\mathbb{Z}_8^{l\times l} \| = 4^4 
+\end{equation*}
+\subsection{}
+
+\subsection{}
+\subsection{}
+\subsubsection{}
+\begin{align*}
+  x &= \underbrace{\framebox{\ldots}}_{l}\underbrace{\framebox{\ldots}}_{l}\underbrace{\framebox{\ldots}}_{l}\underbrace{\framebox{\ldots}}_{l}\\
+  y &= \framebox{\ldots}\framebox{\ldots}\framebox{\ldots}\framebox{\ldots}\\
+  K &= ? \in \mathbb{Z}_{p}^{l\times l}\\
+  X &= ? \in \mathbb{Z}_{p}^{l\times l} \text{ falls  } X^{-1} \text{ existiert  }\\
+  Y &= ? \in \mathbb{Z}_{p}^{l\times l} \text{ falls  } X^{-1} \text{ existiert  }\\
+  X \cdot K &= Y\\
+  \Rightarrow K &= X^{-1}Y\\
+\end{align*}
+Also ist $K$ einziger passender Schlüssel für die Blöcke.
+% \begin{align*}
+%   \begin{pmatrix}[ccc|ccc]
+%     13 & 2 & 2 & 1 & 0 & 0\\
+%     2 & 13 & 2 & 0 & 1 & 0\\
+%     13 & 2 & 13 & 0 & 0 & 1\\
+%   \end{pmatrix}
+% \end{align*}
+\end{document}

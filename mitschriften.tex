@@ -48,6 +48,13 @@
 \newcommand{\konj}[1]{\overline{#1}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\chonk}[2]{ {{#1}\choose{#2}} }
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
 
 % tables
 \usepackage{tabularx}
@@ -127,6 +134,9 @@ commentstyle=\color{mygreen}
 \section{} 
 \label{sec:2}
 \subfile{uebung2.tex}
+\section{} 
+\label{sec:2}
+\subfile{uebung3.tex}
 \end{document}
 % Local Variables:
 % TeX-engine: luatex
