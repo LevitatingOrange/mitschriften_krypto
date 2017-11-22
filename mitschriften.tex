@@ -73,6 +73,12 @@
 \setcounter{tocdepth}{1}
 
 % sections
+\usepackage{remreset}
+
+\makeatletter
+  \@removefromreset{subsection}{section}
+\makeatother
+
 \renewcommand\thesection{Übung \arabic{section}}
 \renewcommand\thesubsection{Aufgabe \arabic{subsection}}
 \renewcommand\thesubsubsection{(\alph{subsubsection})}
@@ -137,6 +143,9 @@ commentstyle=\color{mygreen}
 \section{} 
 \label{sec:2}
 \subfile{uebung3.tex}
+\section{}
+\label{sec:3}
+\subfile{uebung4.tex}
 \end{document}
 % Local Variables:
 % TeX-engine: luatex
